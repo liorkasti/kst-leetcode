@@ -1,4 +1,4 @@
-package leetcode.interview.questions.backtracking;
+package interview.questions.medium;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

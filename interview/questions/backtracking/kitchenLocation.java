@@ -1,11 +1,11 @@
-package leetcode.interview.questions.backtracking;
+package interview.questions.backtracking;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author Lior Kastenbaum
- * оимд чешс - C, C++ & RT Embedded Programming
+ * пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ - C, C++ & RT Embedded Programming
  */
 public class kitchenLocation {
 	public static char map1[][] = {	

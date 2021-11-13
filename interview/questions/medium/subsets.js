@@ -3,22 +3,35 @@
  * @return {number[][]}
  */
 
-const nums = [1, 2,3]
+const nums = [1, 2, 3]
+// Iterative:
+var subsets = function (nums) {
+    const sebsets = [[]];
 
-const subsets = (nums) => {
-    const subsets = [[]]
-    const generate = (nums)=>{
-        for(let i = 0; i< nums.length; i++){
-            const size = subsets.length
-            for(let j = 0; j < size; j++){
-              const current = subsets[j]
-              const newSub = [...current, nums[i]]
-              subsets.push(newSub)
-            }
-          }
-      }
-      generate(nums)
-    return subsets
+    for (let num of nums) {
+        let append = [];
+        for (let entry of sebsets) {
+            append.push([...entry, num]);
+        }
+        sebsets.push(...append);
+    }
+
+    return sebsets;
+};
+console.log('Iterative output: ', subsets(nums))
+
+Recursive:
+var subsetsR = function (nums) {
+    const sebsets = [];
+    const generate = (head = [], left = nums) => {
+        sebsets.push(head)
+        if (left.length === 0) { return; }
+        for (let i = 0; i < left.length; i++) {
+            generate([...head, left[i]], left.filter((_, j) => j > i))
+        }
+    }
+    generate()
+    return sebsets;
 };
 
 const uniqBy = (a, key) => {
@@ -29,4 +42,4 @@ const uniqBy = (a, key) => {
     });
 }
 
-console.log(`output: `, subsets(nums))
+console.log(`Recursive output: `, subsetsR(nums))

@@ -1,4 +1,4 @@
-package leetcode.interview.questions;
+package interview.questions;
 
 import java.awt.List;
 import java.util.ArrayList;

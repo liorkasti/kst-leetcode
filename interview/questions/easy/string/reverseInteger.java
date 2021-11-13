@@ -1,4 +1,4 @@
-package leetcode.interview.questions.easy.string;
+package interview.questions.easy.string;
 
 public class reverseInteger {
 

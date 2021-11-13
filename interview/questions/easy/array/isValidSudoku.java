@@ -1,4 +1,4 @@
-package leetcode.interview.questions.easy.array;
+package interview.questions.easy.array;
 
 import java.util.HashSet;
 import java.util.Set;

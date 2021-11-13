@@ -1,4 +1,4 @@
-package leetcode.interview.questions.backtracking;
+package interview.questions.medium;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,14 +7,13 @@ public class PermutationsOfNums {
 
     // Driver code
     public static void main(String[] args) {
-        int a[] = { 1, 2, 2 };
-        // int a[] = {1,2, 3};
-        // permute(a);
+        // int a[] = { 1, 2, 2 };
+        int[] a = { 1,1,2 };
         System.out.println(permute(a));
     }
 
     /**
-     * Given a collection of distinct integers, return all possible permutations.
+     * Given a collection of numbers, nums, that might contain duplicates, return all possible unique permutations in any order.
      */
     public static List<List<Integer>> permute(int[] nums) {
 
@@ -48,7 +47,6 @@ public class PermutationsOfNums {
 
     // Function that returns true if string 's' is present in the Arraylist
     static boolean isExist(List<List<Integer>> res, int[] nums) {
-
         // If present then return true
         for (List<Integer> i : res) {
             if (i.equals(nums))

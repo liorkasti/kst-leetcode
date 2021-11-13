@@ -1,4 +1,4 @@
-package leetcode.interview.questions.backtracking;
+package interview.questions.backtracking;
 
 import java.util.ArrayDeque;
 import java.util.Queue;

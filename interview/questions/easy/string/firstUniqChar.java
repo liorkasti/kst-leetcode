@@ -1,4 +1,4 @@
-package leetcode.interview.questions.easy.string;
+package interview.questions.easy.string;
 
 import java.util.HashMap;
 import java.util.Map;

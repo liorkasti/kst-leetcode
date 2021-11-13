@@ -1,4 +1,4 @@
-package leetcode.interview.questions;
+package interview.questions.easy.linkedList;
 
 public class ListNode {
 	// Definition for singly-linked list.

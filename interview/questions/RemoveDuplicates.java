@@ -1,4 +1,4 @@
-package leetcode.interview.questions;
+package interview.questions;
 
 public class RemoveDuplicates {
 	/*

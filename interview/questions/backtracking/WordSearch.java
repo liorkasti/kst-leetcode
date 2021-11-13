@@ -1,4 +1,4 @@
-package leetcode.interview.questions.backtracking;
+package interview.questions.backtracking;
 
 public class WordSearch {
 	private static char board[][] = { { 'A', 'B', 'C', 'E' }, { 'S', 'F', 'C', 'S' }, { 'A', 'D', 'E', 'E' } };

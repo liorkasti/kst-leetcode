@@ -1,4 +1,4 @@
-package leetcode.interview.questions.backtracking;
+package interview.questions.backtracking;
 import java.awt.Point;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 /**
  * @author Lior Kastenbaum
- * оимд чешс - C, C++ & RT Embedded Programming
+ * пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ - C, C++ & RT Embedded Programming
  */
 public class bestKitchenLocationBSFandDFS {
 	

@@ -1,4 +1,4 @@
-package leetcode.interview.questions;
+package interview.questions;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -6,7 +6,7 @@ import java.util.List;
 
 import javax.swing.RowFilter;
 
-import leetcode.interview.questions.TreesIsSymmetric.TreeNode;
+import interview.questions.TreesIsSymmetric.TreeNode;
 
 public class TreesLevelOrder {
 
