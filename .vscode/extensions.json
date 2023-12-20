@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 {
     "recommendations": [
         "eamodio.gitlens"
     ]
+=======
+{
+    "recommendations": [
+        "eamodio.gitlens"
+    ]
+>>>>>>> origin/master
 }
