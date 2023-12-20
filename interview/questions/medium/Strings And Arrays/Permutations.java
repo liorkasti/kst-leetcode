@@ -9,20 +9,20 @@ public class Permutations {
 		// int a[] = { 1, 2, 3 };
 		// int a[] = { 1, 2, 2 };
 		int a[] = { 1, 1 };
-		System.out.println(permuteUnique(a));
+		System.out.println(permuteUnique2(a));
 		// System.out.println(permuteUnique(a));
 	}
 
-	public static List<List<Integer>> permuteUnique2(int[] num) {
+	public static List<List<Integer>> permuteUnique2(int[] nums) {
 		LinkedList<List<Integer>> result = new LinkedList<>();
 		result.add(new ArrayList<>());
-		for (int i = 0; i < num.length; i++) {
+		for (int i = 0; i < nums.length; i++) {
 			Set<String> cache = new HashSet<>();
 			while (result.peekFirst().size() == i) {
 				List<Integer> l = result.removeFirst();
 				for (int j = 0; j <= l.size(); j++) {
 					List<Integer> permutation = new ArrayList<>(l.subList(0, j));
-					permutation.add(num[i]);
+					permutation.add(nums[i]);
 					permutation.addAll(l.subList(j, l.size()));
 					if (cache.add(permutation.toString()))
 						result.add(permutation);
@@ -87,7 +87,7 @@ public class Permutations {
 		}
 
 		for (int i = 0; i <= permutation.size(); i++) {
-			List<Integer> newPermutation = new ArrayList<>();
+			List<Integer> newPermutation = new ArrayList<>(permutation);
 			newPermutation.add(i, nums[start]);
 			collectPermutations(nums, start + 1, newPermutation, permutations);
 		}

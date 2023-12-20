@@ -3,44 +3,58 @@
  * @return {number[][]}
  */
 
-const nums = [8, 8, 9];
+const nums = [1, 1, 2];
+const permuteUnique = (nums) => {
+    let res = [], remain = [], set = new Set(nums);
+    nums.forEach(num => remain[num] ? remain[num]++ : remain[num] = 1);
+
+    function permute(depth, remain, cur) {
+        if (depth == nums.length) {
+            res.push(cur.slice());
+            return;
+        }
+        for (let num of set) {
+            if (remain[num]) {
+                cur.push(num);
+                remain[num]--;
+
+                // move to the next depth
+                permute(depth + 1, remain, cur);
+
+                // backtrack to previous state
+                cur.pop();
+                remain[num]++;
+            }
+        }
+        return res;
+    }
+    return permute(0, remain, []);
+}
 
 var permute = (nums) => {
     const result = [];
 
     const permuteSubset = (current, excludes) => {
-        excludes && console.log(`excludes`, excludes);
         if (current.length === nums.length) {
-            current && console.log(`current`, current);
             result.push(current.slice());
             return;
         }
 
         for (let i = 0; i < nums.length; i++) {
             const key = `${i}`;
-            console.log(`key> `, key)
-            if (!excludes.has(key)) {
-                excludes.add(key);
+            if (!excludes.has(i)) {
+                excludes.add(i);
                 current.push(nums[i]);
                 permuteSubset(current, excludes);
                 current.pop();
-                excludes.delete(key);
+                excludes.delete(i);
             }
         }
     };
     permuteSubset([], new Set());
-
-    const destinct = new Set()
-    result.forEach(comb => {
-        destinct.has(comb) ?
-            null
-            :
-            destinct.add(comb)
-    });
-
-    return uniqBy(result, JSON.stringify);
+    return result;
+    // return uniqBy(result, JSON.stringify);
 };
-
 
 //Solution 2
 let permutation = (nums) => {
@@ -68,8 +82,8 @@ let permutation = (nums) => {
     }
 
     getPermutation(nums, 0, nums.length - 1);
-
-    return uniqBy(permutations, JSON.stringify);
+    return permutations;
+    // return uniqBy(permutations, JSON.stringify);
 };
 
 const uniqBy = (a, key) => {
@@ -81,4 +95,4 @@ const uniqBy = (a, key) => {
 }
 
 console.log(`output:`, permute(nums));
-console.log(`output:`, permutation(nums));
+// console.log(`output:`, permutation(nums));

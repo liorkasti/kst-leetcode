@@ -8,8 +8,8 @@ import java.util.Set;
 
 public class subsetsWithDup {
     public static void main(String[] args) {
-        // int[] mySet = { 1, 2, 2 };
-        int[] mySet = { 4,4,4,1,4 };
+        int[] mySet = { 1, 2, 2 };
+        // int[] mySet = { 4,4,4,1,4 };
         System.out.println(subsetsWithDup(mySet));
     }
 

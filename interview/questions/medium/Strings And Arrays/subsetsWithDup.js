@@ -3,8 +3,57 @@
  * @return {number[][]}
  */
 
-// const nums = [1, 2, 2]
-const nums = [4,4,4,1,4]
+const nums = [1, 2, 2]
+// const nums = [4,4,4,1,4]
+
+const subsetsWithDupBT = (nums) => {
+    nums = nums.sort((a, b) => a - b);
+
+    const subsets = [];
+
+    const backtrack = (len, index = 0, newSub = []) => {
+        if (newSub.length === len) {
+            subsets.push(newSub.slice());//slice() is used to create a copy of the array
+            return;
+        }
+        for (let i = index; i < nums.length; i++) {
+            if (i !== index && nums[i - 1] === nums[i]) continue;
+            newSub.push(nums[i]);
+            backtrack(len, i + 1, newSub);
+            newSub.pop();
+        }
+    }
+
+    for (let i = 0; i <= nums.length; i++) {
+        backtrack(i);
+    }
+
+    return subsets;
+}
+console.log(`output subsetsWithDupBT: `, subsetsWithDupBT(nums));
+
+function subsetsWithDupDFS(nums) {
+    const result = [];
+    nums.sort((a, b) => a-b);
+    dfs(0)
+    return result;
+
+    function dfs(index, combo = []) {
+        if(index === nums.length) {
+            result.push([...combo]);
+            return;
+        }
+
+        //choose 
+        combo.push(nums[index]);
+        dfs(index + 1, combo);
+        //dont choose
+        combo.pop();
+        while(index < nums.length && nums[index] === nums[index + 1]) index++;
+        dfs(index + 1, combo);
+    }
+}
+console.log(`output subsetsWithDupDFS: `, subsetsWithDupDFS(nums));
 
 const subsetsWithDup = (nums) => {
     nums = nums.sort((a, b) => a - b);
@@ -31,7 +80,7 @@ const subsetsWithDup = (nums) => {
     return subsets;
 }
 
-console.log(`output: `, subsetsWithDup(nums));
+// console.log(`output: `, subsetsWithDup(nums));
 
 var dfsSubsetsWithDup = function(nums) {
     nums.sort((a, b) => a - b);

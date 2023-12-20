@@ -24,8 +24,3 @@ const lengthOfLongestSubstring = (s) => {
 };
 
 console.log(`length:`, lengthOfLongestSubstring(s));
-
-const fetchImdbMostPopular = () => {
-
-}
-
