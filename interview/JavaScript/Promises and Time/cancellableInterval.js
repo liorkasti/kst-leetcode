@@ -90,10 +90,19 @@
 // given:
 // var cancellable = function (fn, args, t) {};
 const result = [];
-const fn = (x) => x * 2;
-const args = [4],
-  t = 35,
-  cancelTimeMs = 190;
+const fn = (x) => x * 2,
+  args = [4],
+  t = 35;
+cancelTimeMs = 190;
+
+// let fn = (x1, x2) => x1 * x2,
+//   args = [2, 5],
+//   t = 30;
+
+// let fn = (x1, x2, x3) => x1 + x2 + x3,
+//   args = [5, 1, 3],
+//   t = 50;
+
 const start = performance.now();
 const log = (...argsArr) => {
   const diff = Math.floor(performance.now() - start);
@@ -118,10 +127,40 @@ setTimeout(() => {
  * @param {number} t
  * @return {Function}
  */
-var cancellable = function (fn, args, t) {
-  const timeout = setInterval(() => fn(...args), t);
-  return () => clearTimeout(timeout);
+const cancellable = (fn, args, t) => {
+  fn(...args);
+  let interval = setInterval(() => fn(...args), t);
+  return () => clearInterval(interval);
 };
+
+// /**
+//  * @param {Function} fn
+//  * @param {Array} args
+//  * @param {number} t
+//  * @return {Function}
+//  */
+// var cancelMs = 0;
+// var stepMs = 0;
+
+// Array.prototype.push = function ({ returned }) {
+//   let el = 0;
+//   for (let i = 0; i < cancelMs; i += stepMs) {
+//     this[el++] = { time: i, returned };
+//   }
+//   return this;
+// };
+
+// setTimeout = function (buildResult, timeout) {
+//   cancelMs = timeout;
+//   buildResult();
+// };
+
+// var cancellable = function (fn, args, t) {
+//   stepMs = t;
+//   return () => {
+//     fn(...args);
+//   };
+// };
 
 /**
  *  const result = [];

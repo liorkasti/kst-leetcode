@@ -83,6 +83,19 @@ const cancellable = (fn, args, t) => {
   return () => clearTimeout(timeout);
 };
 
+const useThrottle = (toThrottle, durationToWait) => {
+  let timeout;
+  return (executedFunction = (...args) => {
+    const later = () => {
+      console.log({ timeout, later, args });
+      clearTimeout(timeout);
+      toThrottle(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, durationToWait);
+  });
+};
+
 const cancel = cancellable(log, args, t);
 const maxT = Math.max(t, cancelTimeMs);
 setTimeout(cancel, cancelTimeMs);
