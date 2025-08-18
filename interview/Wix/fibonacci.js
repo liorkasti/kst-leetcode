@@ -3,6 +3,10 @@
 
 let arr = [];
 
+/**
+ * @param {number} n
+ * @return {number}
+ */
 function fibonacci(index) {
     if (arr[index] != null) {
         return arr[index]
@@ -30,3 +34,16 @@ console.log(fibonacci(8))
 console.log(fibonacci(5))
 console.log(fibonacci(9))
 console.log(fibonacci(10))
+
+// /**
+//  * @param {number} n
+//  * @return {number}
+//  */
+// const fib = function(n) {
+//     return n<2 ? n : fib(n-1) + fib(n-2);
+// };
+
+// console.log(fib(0))
+// console.log(fib(1))
+// console.log(fib(2))
+// console.log(fib(3))
